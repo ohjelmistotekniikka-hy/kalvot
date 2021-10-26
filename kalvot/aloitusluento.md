@@ -1,10 +1,10 @@
 % Ohjelmistotekniikka
-% Matti Luukkainen, Jussi Mäki-Kahra, Pekka Mäki-Mikola ja 9 ohjaajaa
-% 16.3.2021
+% Matti Luukkainen, Jussi Mäki-Kahra ja 7 ohjaajaa
+% 1.11.2021
 
 # Ohjelmistotekniikka
 
-- Kurssilla tutustutaan ohjelmistokehityksen periaatteisiin sekä menetelmiin ja sovelletaan niitä toteuttamalla pienehkö harjoitustyö
+- Tutustutaan ohjelmistokehityksen periaatteisiin sekä menetelmiin ja sovelletaan niitä toteuttamalla pienehkö harjoitustyö
 
 . . .
 
@@ -33,7 +33,7 @@
 . . .
 
 - Harjoitustyö tulee tehdä kurssin aikataulujen puitteissa
-- Kesken jäänyttä harjoitustyötä ei voi jatkaa seuraavalla kurssilla (syksyllä 2021)
+- Kesken jäänyttä harjoitustyötä ei voi jatkaa seuraavalla kurssilla (keväällä 2022)
 - Muista siis varata riittävästi aikaa (10-15h viikossa) koko periodin ajaksi!
 
 # Luento, deadlinet ja ohjaus
@@ -43,12 +43,13 @@
 
 . . .
 
-- Pajaa zoomissa
+- Pajaa kampuksella (BK107)
   - ma 14-16
   - ti 14-16
-  - to 13-15
-
-- Myös kurssin Telegramissa voi kysellä apua ongelmatilanteissa
+  - ke 14-16
+- Pajaa zoomissa
+  - to 14-16
+- Myös kurssin _Discordissa_ voi kysellä apua ongelmatilanteissa, erityisesti klo 9-16
 
 # Arvosteluperusteet
 
@@ -119,7 +120,7 @@
 
 # Kurssin referenssisovellus: TodoApp
 
-https://github.com/mluukkai/OtmTodoApp havainnollistaa monia kurssin asioita ja toimii myös mallina omalle harjoitustyölle
+https://github.com/ohjelmistotekniikka-hy/python-todo-app havainnollistaa monia kurssin asioita ja toimii myös mallina omalle harjoitustyölle
 
 - _todoapp_ eli sovellus, jonka avulla käyttäjien on mahdollista pitää kirjaa omista tekemättömistä töistä, eli _todoista_
 
@@ -156,7 +157,7 @@ Katsotaan esimerkkinä Todo-sovelluksen vaatimusmäärittelyä
 - Ohjelmiston vaatimuksiin kuuluvat myös _toimintaympäristön rajoitteet_
 - Todo-sovellusta koskevat seuraavat rajoitteet:
   - ohjelmiston tulee toimia Linux- ja OSX-käyttöjärjestelmillä varustetuissa koneissa
-  - toteutetaan Java FX -kirjaston avulla
+  - toteutetaan Pythonin TkInter-kirjaston avulla
   - käyttäjien ja todojen tiedot talletetaan paikallisen koneen levylle
 
 . . .
@@ -247,19 +248,17 @@ Katsotaan esimerkkinä Todo-sovelluksen vaatimusmäärittelyä
 - Tämän jälkeen suoritetaan useita _iteraatioita_, joiden aikana ohjelmistoa rakennetaan pala palalta eteenpäin
 - Kussakin iteraatiossa suunnitellaan ja toteutetaan valmiiksi pieni osa ohjelmiston vaatimuksista
 
-. . .
+# Ketterä ohjelmistokehitys
 
 - Asiakas pääsee kokeilemaan ohjelmistoa jokaisen iteraation jälkeen
 - Voidaan jo aikaisessa vaiheessa todeta, onko kehitystyö etenemässä oikeaan suuntaan
 - Vaatimuksia voidaan tarvittaessa tarkentaa ja muuttaa
 
-# Ketterä ohjelmistokehitys
-
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-2.png){ width=400 }
+![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-2.png){ width=350 }
 
 . . .
 
-Teemme kurssin harjoitustyötä ketterässä hengessä viikon mittaisilla iteraatioilla
+Kurssin harjoitustyö ketterässä hengessä viikon mittaisilla iteraatioilla
 
 #
 
@@ -275,64 +274,42 @@ Teemme kurssin harjoitustyötä ketterässä hengessä viikon mittaisilla iteraa
 
 . . .
 
-- Maven
-  - Olet todennäköisesti ohjelmoinut Javaa NetBeansilla ja tottunut painamaan "vihreää nappia" tai "mustaa silmää"
-  - tutkimme kurssilla hieman miten Javalla tehdyn ohjelmiston _hallinnointi_ tapahtuu NetBeansin "ulkopuolella"
-    - koodin kääntäminen, koodin sekä testin suorittaminen ja koodin paketoiminen NetBeansin ulkopuolella suoritettavissa olevaksi jar-paketiksi
-  - Java-projektien hallinnointiin on olemassa muutamia vaihtoehtoja, käytämme joillekin TiKaPesta tuttua _mavenia_
-
-# JUnit
+- poetry ja invoke
+  - Olet todennäköisesti ohjelmoinut Pythonia VS codella ja tottunut suorittamaan ohjelman ja testit "nappia painamalla"
+  - tutkimme kurssilla hieman miten Pythonilla tehdyn ohjelmiston _hallinnointi_ tapahtuu VS coden ulkopuolella
+    - tarvittavien kirjastojen lataaminen, koodin sekä testin suorittaminen
+  - Python-projektien hallinnointiin on olemassa muutamia vaihtoehtoja, käytössämme _poetry_ ja _invoke_
+  
+# Unittest
 
 - Ohjelmistojen testaus tapahtuu nykyään  automatisoitujen testityökalujen toimesta
 
 . . .
 
-- Java-maailmassa testausta dominoi lähes yksinvaltiaan tavoin JUnit
-- Tulet kurssin ja myöhempienkin opintojesi aikana kirjoittamaan paljon JUnit-testejä
-- Viikon 2 laskareissa harjoitellaan JUnitin perusteita
+- unittest eräs pythonin automatisoidun testauksen työkaluista
+- Tulet kurssin ja myöhempienkin opintojesi aikana kirjoittamaan paljon automatisoituja testejä
+- Viikon 2 laskareissa harjoitellaan Unittestin perusteita
 
-# Checkstyle
+# pylint
 
 - Automaattisten testien lisäksi koodille voidaan määritellä erilaisia automaattisesti tarkastettavia tyylillisiä sääntöjä
   - ylläpidetään koodin luettavuutta ja varmistetaan, että koodi noudateta samoja tyylillisiä konventioita
 
 . . .
 
-- Käytämme kurssilla tarkoitukseen _Checkstyle_-nimistä työkalua
+- Käytämme kurssilla tarkoitukseen _pylint_-nimistä työkalua
 
 . . .
 
-- Ohjelmoinnin perusteet ja jatkokurssi käyttivät Checkstyleä valvomaan ohjelman sisennystä
-- Kurssilla kontrolloimme mm. muuttujien nimentää, sulkumerkkien sijoittelua ja välilyönnin käytön systemaattisuutta
+- pylintin avulla kontrolloimme mm. muuttujien nimentää, sulkumerkkien sijoittelua ja välilyönnin käytön systemaattisuutta
 
-# JavaDoc
+# docstring
 
 - Osa ohjelmiston dokumentointia on lähdekoodin luokkien julkisten metodien kuvaus
-- Javassa lähdekoodi dokumentoidaan käyttäen _JavaDoc_-työkalua
+- Pythonissa lähdekoodi dokumentoidaan käyttäen _docstring_-työkalua
 - Dokumentointi tapahtuu kirjoittamalla koodin yhteyteen sopivasti muotoiltuja kommentteja
-
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/k-1.png){ width=400 }
-
-# JavaDoc
-
-Sovelluksen JavaDocia voi tarkastella selaimen avulla
-
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-7.png){ width=400 }
-
-# JavaDoc
-
-NetBeans osaa näyttää ohjelmoidessa koodiin määritellyn JavaDocin
-
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-14.png)
-
-
-# Pythononille löytyy vastaavat työkalut
-
-- poetry
-- invoke
-- unittest
-- pylint
-- docstring
+ 
+![](images/1.png){ width=350 }
 
 #
 
@@ -357,20 +334,18 @@ NetBeans osaa näyttää ohjelmoidessa koodiin määritellyn JavaDocin
 - Kurssin Tietokantojen perusteista tuttujen _luokkakaavioiden_ käyttötarkoitus on luokkien ja niiden välisten suhteiden kuvailu
 - Todo-sovelluksen oleellista tietosisältöä kuvaavat luokat
 
-```java
-public class User {
-    private String name;
-    private String username;
-    // ...
-}
+```python
+class Todo:
+    def __init__(self, content, done=False, user):
+        self.content = content
+        self.done = done
+        self.user = user
+        self.id = str(uuid.uuid4())
 
-public class Todo {
-    private int id;
-    private String content;
-    private boolean done;
-    private User user;
-    // ...
-}
+class User:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
 ```
 
 # Todo-sovelluksen tietosisällön luokkakaavio
@@ -378,27 +353,27 @@ public class Todo {
 - Yhdellä käyttäjällä voi olla *monta* Todoa
 - Todo liittyy aina *yhteen* käyttäjään
 
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-3a.png){ width=450 }
+![](images/3.png){ width=400 }
 
 # Todo-sovelluksen tietosisällön luokkakaavio
 
 - Yleensä ei ole mielekästä kuvata luokkia tällä tarkkuudella, eli **luokkakaavioihin riittää merkitä luokan nimi**
 
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-4.png){ width=300 }
+![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-4.png){ width=260 }
 
-- Kaaviota parempi paikka metodien kuvaamiselle on koodiin liittyvä JavaDoc-dokumentaatio
+- Kaaviota parempi paikka esim. metodien kuvaamiselle on koodiin liittyvä docstring
 
 # Pakkauskaavio
 
-- Ohjelmiston korkeamman tason rakenne näkyy yleensä siinä miten koodi on jaettu _pakkauksiin_
+- Ohjelmiston korkeamman tason rakenne näkyy yleensä siinä miten koodi on jaettu hakemistoihin
 
 . . .
 
-- Todo-sovelluksen koodi on sijoitettu _pakkauksiin_ (tai hakemistoihin) seuraavasti:
+- Todo-sovelluksen koodi on sijoitettu hakemistoihin seuraavasti:
 
 :::::::::::::: {.columns}
 ::: {.column width="50%"}
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/k-2.png){ width=150 }
+![](images/4.png){ width=150 }
 :::
 ::: {.column width="50%"}
 
@@ -407,14 +382,14 @@ public class Todo {
 
 # Pakkauskaavio
 
-- Pakkausrakenne voidaan kuvata UML:ssä pakkauskaaviolla
+- Hakemistorakenne voidaan kuvata UML:ssä _pakkauskaaviolla_
 
 :::::::::::::: {.columns}
 ::: {.column width="50%"}
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/k-2.png){ width=150 }
+![](images/4.png){ width=150 }
 :::
 ::: {.column width="50%"}
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-11.png){ width=100 }
+![](images/5.png){ width=200 }
 :::
 ::::::::::::::
 
@@ -428,7 +403,7 @@ public class Todo {
 . . .
 
 - Esim. Ohpen Unicafe-tehtävä
-  ![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-15.png){ width=400 }
+  ![](images/6.png){ width=300 }
 - Vaikka kaavioon on nyt merkitty metodien nimet, ei ohjelman toimintalogiikka selviä kaaviosta
 - Esim. mitä tapahtuu, kun maksukortilla jolla on rahaa 3 euroa, ostataan edullinen lounas?
 
@@ -443,26 +418,25 @@ public class Todo {
 
 Mitä tapahtuu, kun maksukortilla jolla on rahaa 3 euroa, ostataan edullinen lounas?
 
-```java
-public class Kassapaate {
-  public boolean syoEdullisesti(Maksukortti kortti) {
-      if (kortti.saldo() < EDULLISEN_HINTA) {
-          return false;
-      }
+. . .
 
-      kortti.otaRahaa(EDULLISEN_HINTA);
-      this.edulliset++;
-      return true;
-  }
+```python
+class Kassapaate:
+    def __init__(self):
+        self.EDULLISEN_HINTA = 2.5
 
-  // ...
-}
-
+    def syo_edullisesti(self, kortti: Maksukortti):
+        if kortti.saldo < self.EDULLISEN_HINTA:
+            return False
+           
+        kortti.ota_rahaa(self.EDULLISEN_HINTA):
+        self.edulliset += 1
+        return True
 ```
 
 # Onnistunut ostos sekvenssikaaviona
 
-![](https://raw.githubusercontent.com/mluukkai/ohjelmistotekniikka-syksy-2020/main/web/images/l-16.png){ width=300 }
+![](images/7.png){ width=350 }
 
 - Oliot ovat laatikoita joista lähtee alas "elämänlanka"
 - Aika etenee ylhäältä alas
@@ -478,7 +452,12 @@ public class Kassapaate {
 - Kurssin pääpainon muodostaa viikolla 2 aloitettava harjoitustyö
 - Harjoitustyössä toteutetaan itsenäisesti ohjelmisto omavalintaisesta aiheesta
 
-- Harjoitustyötä tehdään itsenäisesti, mutta tarjolla on pajaohjausta zoomissa
+- Harjoitustyötä tehdään itsenäisesti, mutta tarjolla on pajaohjausta
+- Pajaa kampuksella
+  - ma 14-16 (BK107)
+  - ti 14-16 (BK107)
+  - ke 14-16 (BK107)
+  - to 14-16 (zoom)
 
 # Älä plagioi
 
@@ -493,7 +472,7 @@ public class Kassapaate {
 
 . . .
 
-- Samaa ohjelmaa ei voi jatkaa seuraavalla kurssilla (eli syksyllä 2021), vaan työ on aloitettava uudella aiheella alusta
+- Samaa ohjelmaa ei voi jatkaa seuraavalla kurssilla (eli keväällä 2022), vaan työ on aloitettava uudella aiheella alusta
 
 . . .
 
@@ -502,7 +481,7 @@ public class Kassapaate {
 
 # Kieli
 
-- Harjoitustyön ohjelmointikieli on Java tai Python
+- Harjoitustyön ohjelmointikieli on Python tai Java
 - Ohjelmakoodin muuttujat, luokat ja metodit **kirjoitetaan englanniksi**
 - Dokumentaatio voidaan kirjoittaa joko suomeksi tai englanniksi
 
@@ -528,7 +507,7 @@ public class Kassapaate {
 
 . . .
 
-- Graafiseen käyttöliittymään suositellaan JavaFX:ää, Pythonilla Tkinteriä tai Pygamea
+- Graafiseen käyttöliittymään suositellaan Pythonilla Tkinteriä tai Pygamea ja Javalla JavaFX:ää
 - Tiedon talletus joko tiedostoon tai tietokantaan suositeltavaa
 
 # Ohjelman toteutus
@@ -542,7 +521,11 @@ public class Kassapaate {
 
 . . .
 
-- Toivottava dokumentaation taso käy ilmi referenssisovelluksesta https://github.com/mluukkai/OtmTodoApp
+- Toivottava dokumentaation taso käy ilmi referenssisovelluksesta https://github.com/ohjelmistotekniikka-hy/python-todo-app
+
+. . .
+
+- Voit ottaa mallia referenssisovelluksen dokumentaatiosta mutta **älä copypastea**, se johtaa hylkäämiseen
 
 # Koodin laatuvaatimukset
 
@@ -673,13 +656,14 @@ Ohjelman pisteet jakautuvat seuraavasti
 . . .
 
 - sovelluslogiikan kompleksisuus 3p
-- ohjelman lajuus 5p
+- ohjelman lajuus 4p
 
 . . .
 
 - ulkoisten kirjastojen hyödyntäminen 1p
-- suorituskelpoinen jar-tiedosto 1p
-- koodin laatu 6p
+- release / suorituskelpoinen jar-tiedosto 1p
+- koodin laatu 5p
+- virheiden käsittely 2p
 
 # Harjoitustyön toimivuus
 
